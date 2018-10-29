@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule , routingComponents } from './app-routing.module';
 
@@ -16,10 +18,12 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     routingComponents,
     FooterComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

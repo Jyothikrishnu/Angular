@@ -4,12 +4,12 @@
     <div class="col-sm-12">
       <div class="loginFormWrap">
         <div class="loginForm">
-          <form >
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()" >
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
                   <label >User Name</label>
-                  <input type="text" class="form-control" >
+                  <input type="text" class="form-control" formControlName="uName" >
                 </div>
               </div>
             </div>
@@ -17,14 +17,15 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label >Password</label>
-                  <input type="password" class="form-control" >
+                  <input type="password" class="form-control" formControlName="password" >
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
-                  <input type="submit" class="form-control btn btn-primary" value="Login" >
+                  <!-- <input type="submit" class="form-control btn btn-primary" value="Login" > -->
+                  <button type="submit" class="form-control btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
                 </div>
               </div>
             </div>
