@@ -40,8 +40,7 @@ export class HomeComponent implements OnInit {
   });
 
   onLogin() {
-    // alert("Ok");
-    //console.log(this.loginForm.value);
+   alert(JSON.stringify(this.loginForm.value)); 
   }
 
 }

@@ -17,6 +17,10 @@
                   <div *ngIf="uName.errors.required">
                     Name is required.
                   </div>
+
+                  <div *ngIf="uName.errors.minlength">
+                    Atleast 4 charecters are required.
+                  </div>
                   
 
                 </div>
@@ -35,6 +39,9 @@
 
                   <div *ngIf="password.errors.required">
                     password is required.
+                  </div>
+                  <div *ngIf="password.errors.minlength">
+                    Atleast 8 charecters are required.
                   </div>
                   
 
