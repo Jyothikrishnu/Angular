@@ -9,8 +9,18 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label >User Name</label>
-                  <input type="text" class="form-control" formControlName="uName" >
+                  <input type="text" class="form-control" formControlName="uName" required  >
                 </div>
+                <div *ngIf="uName.invalid  && (uName.dirty || uName.touched)"
+                    class="alert alert-danger">
+
+                  <div *ngIf="uName.errors.required">
+                    Name is required.
+                  </div>
+                  
+
+                </div>
+
               </div>
             </div>
             <div class="row">
@@ -19,12 +29,22 @@
                   <label >Password</label>
                   <input type="password" class="form-control" formControlName="password" >
                 </div>
+
+                <div *ngIf="password.invalid  && (password.dirty || password.touched)"
+                    class="alert alert-danger">
+
+                  <div *ngIf="password.errors.required">
+                    password is required.
+                  </div>
+                  
+
+                </div>
+
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
-                  <!-- <input type="submit" class="form-control btn btn-primary" value="Login" > -->
                   <button type="submit" class="form-control btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
                 </div>
               </div>
@@ -38,11 +58,21 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <a routerLink="/register" class="form-control btn btn-success"  >Register</a>
-                  <!-- <input type="submit" class="form-control btn btn-primary" value="Login" > -->
                 </div>
               </div>
             </div>
           </form>
+
+          <!-- <form [formGroup]="formControl" >
+            <label>First Name</label>
+            <input type="text" value="" formControlName="firstName" >
+            <div *ngIf="formControl.get('firstName').touched && formControl.get('firstName').invalid">
+              Invalid
+            </div>
+            <div *ngIf="formControl.get('firstName').errors.required">
+              firstName Invalid
+            </div>
+          </form> -->
         </div>
       </div>
     </div>

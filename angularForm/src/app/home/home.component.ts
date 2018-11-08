@@ -10,20 +10,38 @@ import { FormGroup , FormControl , FormBuilder , Validators } from '@angular/for
 export class HomeComponent implements OnInit {
 
   constructor(private router : Router , private route : ActivatedRoute , private fb : FormBuilder ) { }
-
+  
   ngOnInit() {
+    console.log("init");
+    this.loginForm = new FormGroup({
+      uName :new FormControl('',[Validators.required,Validators.minLength(4)]),
+      password : new FormControl('',[Validators.required, Validators.minLength(8)])
+    });
   }
 
+  get uName() { return this.loginForm.get('uName'); }
+  get password() { return this.loginForm.get('password'); }
 
 
-  loginForm = this.fb.group({
-    uName :['',Validators.required],
-    password : ['',Validators.required]
+  // loginForm = this.fb.group({
+  //   uName :['',Validators.required],
+  //   password : ['',Validators.required]
+  // });
+
+  loginForm = new FormGroup({
+    uName :new FormControl('',[Validators.required,Validators.minLength(4)]),
+    password : new FormControl('',[Validators.required])
+  });
+
+  //get uName() { return this.loginForm.get('uName'); }
+
+  formControl = new FormGroup({
+    firstName : new FormControl('edrer',Validators.required)
   });
 
   onLogin() {
     // alert("Ok");
-    console.log(this.loginForm.value);
+    //console.log(this.loginForm.value);
   }
 
 }
